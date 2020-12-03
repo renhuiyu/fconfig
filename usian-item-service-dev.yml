@@ -1,0 +1,49 @@
+spring:
+  rabbitmq:
+    listener:
+      direct:
+        acknowledge-mode: manual
+    host: 127.0.0.1
+    username: ren
+    password: 123
+    virtual-host: /ren
+  application:
+    name: usian-item-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/usian?characterEncoding=UTF-8
+    username: root
+    password: 123
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    cluster:
+      nodes:
+        - 127.0.0.1:7001
+        - 127.0.0.1:7002
+        - 127.0.0.1:7003
+        - 127.0.0.1:7004
+        - 127.0.0.1:7005
+        - 127.0.0.1:7006
+    jedis:
+      pool:
+        max-active: 20 #连接池最大连接数
+        max-idle: 10 #连接池中的最大空闲连接
+        min-idle: 5 # 连接池中的最小空闲连接
+
+    #配置缓存首页商品分类的 key
+    password: Redis@123
+PROTAL_CATRESULT_KEY: PROTAL_CATRESULT_KEY
+
+server:
+  port: 8090
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+#商品详情
+ITEM_INFO: ITEM_INFO
+BASE: BASE
+DESC: DESC
+PARAM: PARAM
+ITEM_INFO_EXPIRE: 86400
